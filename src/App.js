@@ -1,24 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import Login from './pages/Login' ;
+import ProductCards from './pages/ProductCards';
+import ProductDetail from './pages/ProductDetail';
+import ProductTable from './pages/ProductTable';
+import Layout from './pages/Layout' ;
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      //const  NoPage = (<div> Page Not Found" </div>);
+
+      //if (true) return (
+      //  <Layout/>
+      //) ;
+      //else 
+      return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Login />} />
+            <Route path="table" element={<ProductTable />} />
+            <Route path="cards" element={<ProductCards />} />
+            <Route path="table/detail/:id" element={<ProductDetail/>} />
+            <Route path="cards/detail/:id" element={<ProductDetail/>} />
+            <Route path="*" element={<Login />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
   );
 }
 

@@ -6,6 +6,6 @@ const ProductValues =  [
 {"id":2,"name":"COrnflakes", "PPU":1400, stock:10}
 ] ;
 
-const products = { "products": [...ProductValues] } ;
+const Products = { "products": [...ProductValues] } ;
 export default Products ;
 
