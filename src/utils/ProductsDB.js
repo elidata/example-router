@@ -1,11 +1,32 @@
-import {useState, createContext}  from 'react';
-const DBContext = createContext;
+export default class ProductsDB {
+    static init() {
+        localStorage.set("1", {"test":"1","test2":"2","test3":123}) ;
+    }
 
-const ProductValues =  [
-{"id":1,"name":"Apples","PPU":100,"stock":100},
-{"id":2,"name":"COrnflakes", "PPU":1400, stock:10}
-] ;
+    static get(key) {
+        let value = localStorage.getItem(key);
+        return value === null ? null : JSON.parse(value);
+    }
 
-const Products = { "products": [...ProductValues] } ;
-export default Products ;
+    static set(key,value) {
+        return localStorage.setItem(key,JSON.stringify(value));
+    }
 
+    static length() {
+            return localStorage.length() ;
+    }
+    static unset(key) {
+        if(this.isset(key))
+            return localStorage.removeItem(key);
+        else
+            return null;
+    }
+
+    static clear() {
+        return localStorage.clear();
+    }
+
+    static isset(key) {
+        return this.get(key) !== null;
+    }
+}

@@ -1,10 +1,10 @@
 import React from "react";
 import { Navigate, Link } from "react-router-dom";
-import Products from '../utils/ProductsDB'
+import ProductsDB from '../utils/ProductsDB'
 
 
 function ProductTable(props) {
-    var prod = Products.products ; // an array
+    var prod = ProductsDB.Products.products ; // an array
 
     return (
         <div>
